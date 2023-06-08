@@ -1,5 +1,6 @@
 import React from "react";
 
+
 //El codigo utilizado para CSS es de materialize
 const Header = ({ titulo }) => {
   return (

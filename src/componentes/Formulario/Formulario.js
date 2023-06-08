@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 
-const Formulario = () => {
+const Formulario = ({busqueda, guardarBusqueda, guardarConsultar}) => {
 
-  //state del formulario
-  const [busqueda, guardarBusqueda] = useState({
-    ciudad: '',
-    pais: ''
-  });
+  //*state del formulario
+  // const [busqueda, guardarBusqueda] = useState({
+  //   ciudad: '',
+  //   pais: ''
+  // });
 
   const [error, guardarError] = useState(false);
 
@@ -34,13 +34,16 @@ const Formulario = () => {
     guardarError(false);
 
     //pasarlo al componente principal
+    guardarConsultar(true);
+
+    
   }
 
   return (
     <form
       onSubmit={handleSubmit}
     >
-      {error ? <p className="red darken-4 error">Todos los campos son obligatorios</p>: null}
+      {error ? <p className="red darken-4 error">Todos los campos son obligatorios</p> : null}
 
       <div className="input-field col s12">
         <input type="text" name="ciudad" id="ciudad" value={ciudad} onChange={handleChange} />
@@ -64,6 +67,7 @@ const Formulario = () => {
       <div className="input-field col s12">
         <input type="submit" value="Buscar Clima" className="waves-effect waves-light btn-large btn-block yellow accent-4"></input>
       </div>
+
     </form>
   );
 };
